@@ -1,0 +1,61 @@
+<!-- book-form-dialog.component.html -->
+<div class="book-dialog-inner">
+    <h2>{{ data?.id ? 'Edit Book' : 'Add Book' }}</h2>
+
+    <mat-dialog-content>
+        <form [formGroup]="form" class="dialog-form">
+            <div class="dialog-grid">
+                <mat-form-field appearance="fill" class="full-width">
+                    <mat-label>Title</mat-label>
+                    <input matInput formControlName="title" />
+                </mat-form-field>
+
+                <mat-form-field appearance="fill" class="full-width">
+                    <mat-label>ISBN</mat-label>
+                    <input matInput formControlName="isbn" />
+                </mat-form-field>
+
+                <mat-form-field appearance="fill">
+                    <mat-label>Author</mat-label>
+                    <mat-select formControlName="author_id">
+                        <mat-option *ngFor="let a of authors" [value]="a.id">{{a.name}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+                <mat-form-field appearance="fill">
+                    <mat-label>Category</mat-label>
+                    <mat-select formControlName="category_id">
+                        <mat-option *ngFor="let c of categories" [value]="c.id">{{c.name}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+                <mat-form-field appearance="fill">
+                    <mat-label>Published Year</mat-label>
+                    <input matInput type="number" formControlName="published_year" />
+                </mat-form-field>
+
+                <mat-form-field appearance="fill">
+                    <mat-label>Price</mat-label>
+                    <input matInput type="number" formControlName="price" />
+                </mat-form-field>
+
+                <mat-form-field appearance="fill">
+                    <mat-label>Copies</mat-label>
+                    <input matInput type="number" formControlName="copies" />
+                </mat-form-field>
+
+                <mat-form-field appearance="fill" class="full-width">
+                    <mat-label>Location</mat-label>
+                    <input matInput formControlName="location" />
+                </mat-form-field>
+            </div>
+        </form>
+    </mat-dialog-content>
+
+    <mat-dialog-actions align="end">
+        <button mat-stroked-button (click)="close()">Cancel</button>
+        <button mat-flat-button color="primary" (click)="save()" [disabled]="saving">
+            {{ saving ? 'Saving...' : (data?.id ? 'Update' : 'Create') }}
+        </button>
+    </mat-dialog-actions>
+</div>

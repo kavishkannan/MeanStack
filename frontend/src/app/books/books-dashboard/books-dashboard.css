@@ -1,0 +1,10 @@
+/* general spacing for the table-card is handled in theme, but keep small rules here */
+.table-card {
+    width: calc(100% - 36px);
+    margin-left: 18px;
+    margin-right: 18px;
+}
+
+.mat-form-field {
+    min-width: 180px;
+}

@@ -1,0 +1,35 @@
+.book-dialog-inner {
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.dialog-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    align-items: start;
+}
+
+@media (max-width:640px) {
+    .dialog-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.full-width {
+    grid-column: 1 / -1;
+}
+
+/* for inputs that should span full width */
+.mat-dialog-actions {
+    padding: 12px 24px !important;
+}
+
+.half-dialog-panel .mat-dialog-container {
+    transform: translateX(-6px);
+    transition: transform 160ms cubic-bezier(.2, .8, .2, 1), opacity 120ms;
+}
+
+.half-dialog-panel.mat-dialog-open .mat-dialog-container {
+    transform: translateX(0);
+}
